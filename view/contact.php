@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="contact.css" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <!-- Fontawesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <title>Currency Converter | Konversi Mata Uang</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top" style="
+        background-image: linear-gradient(to bottom right, #2dc653, #155d27);
+      " ;>
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="../">
+                <img src="../asset/logo.fix.png" alt="logo" width="130" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../"> Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.php"> About </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Contact </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Akhir Navbar -->
+    <div class="container">
+        <div class="content">
+            <h1>Contact Us</h1>
+            <h2 id="sent-notification"></h2>
+            <form id="myForm" action="" method="$_POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                    <label for="nama" class="form-label">Nama</label>
+                    <input type="text" class="form-control shadow-none" id="name" placeholder="Masukan nama ">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Alamat email</label>
+                    <input type="email" class="form-control shadow-none" id="email" placeholder="emailmu@gmail.com">
+                </div>
+                <div class="mb-3">
+                    <label for="subjek" class="form-label">Subjek</label>
+                    <input type="text"                   class="form-control shadow-none" id="subject" 
+                    placeholder="Masukan subjek">
+                </div>
+                <div class="mb-3">
+                        <label for="comment" class="form-label">Comment</label>
+                        <textarea class="form-control shadow-none" id="body" rows="3" placeholder="Masukan pesan"></textarea>
+                </div>
+                    <div class="send">
+                        <button type="submit" class="btn btn-primary" onclick="sendEmail()" value="Kirim Email">Kirim</button>
+                    </div>
+            </form>
+            <!-- Link sosmed -->
+            <div class="socmed">
+                <a href="https://instagram.com/roshitx"><img src="https://img.icons8.com/material/48/null/instagram-new--v1.png" />
+                    Instagram</a>
+                <a href="https://www.linkedin.com/in/rsht"><img src="https://img.icons8.com/material/48/null/linkedin--v1.png" />LinkedIn</a>
+                <a href="https://github.com/roshitx"><img src="https://img.icons8.com/material/48/null/github.png" />GitHub</a>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        function sendEmail() {
+            var name = $("#name");
+            var email = $("#email");
+            var subject = $("#subject");
+            var body = $("#body");
+
+            if (isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body)) {
+                $.ajax({
+                   url: 'sendEmail.php',
+                   method: 'POST',
+                   dataType: 'json',
+                   data: {
+                       name: name.val(),
+                       email: email.val(),
+                       subject: subject.val(),
+                       body: body.val()
+                   }, success: function (response) {
+                        $('#myForm')[0].reset();
+                        $('.sent-notification').text("Message Sent Successfully.");
+                   }
+                });
+            }
+        }
+
+        function isNotEmpty(caller) {
+            if (caller.val() == "") {
+                caller.css('border', '1px solid red');
+                return false;
+            } else
+                caller.css('border', '');
+
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>

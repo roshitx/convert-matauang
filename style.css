@@ -1,0 +1,315 @@
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+}
+
+nav {
+    background-color: #155D27;
+}
+
+.nav-item {
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.nav-item .nav-link {
+    color: white;
+    transition: all .3s ease-out;
+    display: inline-block;
+    position: relative;
+}
+
+.nav-item .nav-link:hover {
+    transform: translate(0, -5px);
+    color: #e2e2e2;
+}
+
+.nav-item .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #e2e2e2;
+    transform-origin: bottom right;
+    transition: transform 0.15s ease-out;
+}
+
+.nav-item .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.bungkus {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 25vh;
+    min-height: 60vh;
+    background: #eee;
+    width: 30%;
+    z-index: 1;
+    border-radius: 5px;
+    stroke: 2px black fill;
+}
+
+
+.waves {
+    z-index: -1;
+    top: 100%;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 20vh;
+    min-height:100px;
+    max-height:150px;
+  }
+
+  .parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+  }
+  .parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+  }
+  .parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+  .parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+  }
+  .parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+  }
+  @keyframes move-forever {
+    0% {
+     transform: translate3d(-90px,0,0);
+    }
+    100% { 
+      transform: translate3d(85px,0,0);
+    }
+  }
+  /*Shrinking for mobile*/
+  @media (max-width: 768px) {
+    .waves {
+      height:80px;
+      min-height:100px;
+    }
+  }
+
+  /* Card */
+
+  form h3 {
+    font-weight: 700;
+    font-variant: small-caps;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .wrapper form {
+    margin: 30px 0 20px 0;
+  }
+
+  form :where(input, select, button) {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+  }
+
+  form p {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  form input {
+    background: #eee;
+    border: 1px solid #999;
+    height: 50px;
+    font-size: 17px;
+    padding: 0 15px;
+  }
+
+  form input:focus {
+    padding: 0 14px;
+    border: 2px solid #6ede8a;
+  }
+
+  form .drop-list {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .drop-list .select-box {
+    display: flex;
+    height: 45px;
+    width: 115px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #999;
+    border-radius: 5px;
+  }
+
+  .select-box select {
+    width: auto;
+    background: #eee;
+    font-size: 16px;
+    margin: 0 -5px 0 5px;
+  } 
+
+  .select-box select::-webkit-scrollbar{
+    width: 8px;
+  }
+
+  .select-box select::-webkit-scrollbar-track{
+    background: #eee;
+  }
+
+  .select-box select::-webkit-scrollbar-thumb{
+    background: #888;
+    border-radius: 8px;
+    border-right: 2px solid #fff;
+  }
+
+  .select-box img {
+    max-width: 25px;
+  }
+
+  .drop-list .icon {
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.30s ease;
+  }
+
+  .drop-list .icon:hover {
+    transform: rotate(180deg);
+  }
+
+  form .exchange-rate {
+    font-size: 17px;
+    margin: 20px 0 30px 0;
+  }
+
+  form button {
+    height: 52px;
+    color: #fff;
+    font-size: 17px;
+    background: #155D27;
+    cursor: pointer;
+    transition: 0.30s ease-in-out;
+  }
+
+  form button:hover {
+    background: rgb(37,162,68);
+  }
+
+  .alert {
+    margin: 0;
+    border: none;
+    width: 100%;
+    height: 1em;
+    display: flex;
+    justify-content: center;
+    line-height: 0;
+    font-size: 14px;
+    background: #FFF8EA;
+    border-radius: 0;
+  }
+
+  .alert p a {
+    text-decoration: none;
+    color: #3C4048;
+  }
+
+  .alert p a:hover {
+    text-decoration: underline;
+    color: #aaa;
+  }
+
+  .alert button {
+    position: relative;
+    top: 0;
+    height: 0;
+  }
+
+  .alert-dismissible .btn-close {
+    right: 1.5em;
+    padding: 1rem 1rem;
+    transition: 200ms ease-in-out;
+  }
+
+  .btn-close:hover {
+    transform: rotate(90deg);
+  }
+
+  /* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
+  border-right: 2px solid #f1f1f1;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Responsive Breakpoint */
+  @media only screen and (max-width: 768px) {
+    .wrapper {
+      width: 80%;
+    }
+  }
